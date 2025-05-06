@@ -1,0 +1,91 @@
+
+
+    import pandas as pd
+    # import numpy as np
+
+    df = pd.read_csv("/content/sample_data/StudentsPerformance.csv")
+
+    df
+
+    df.isnull()
+
+    
+    df.isnull().sum()
+
+    gender                         0
+    race/ethnicity                 0
+    parental level of education    0
+    lunch                          0
+    test preparation course        0
+    math score                     0
+    reading score                  0
+    writing score                  1
+    dtype: int64
+
+    df.notnull()
+
+   
+    df.notnull().sum()
+
+    gender                         1000
+    race/ethnicity                 1000
+    parental level of education    1000
+    lunch                          1000
+    test preparation course        1000
+    math score                     1000
+    reading score                  1000
+    writing score                   999
+    dtype: int64
+
+    df.describe()
+
+   
+    df.size
+
+    8000
+
+    df.ndim
+
+    2
+
+    df.shape
+
+    (1000, 8)
+
+    df.info()
+
+    <class 'pandas.core.frame.DataFrame'>
+    RangeIndex: 1000 entries, 0 to 999
+    Data columns (total 8 columns):
+     #   Column                       Non-Null Count  Dtype  
+    ---  ------                       --------------  -----  
+     0   gender                       1000 non-null   object 
+     1   race/ethnicity               1000 non-null   object 
+     2   parental level of education  1000 non-null   object 
+     3   lunch                        1000 non-null   object 
+     4   test preparation course      1000 non-null   object 
+     5   math score                   1000 non-null   int64  
+     6   reading score                1000 non-null   int64  
+     7   writing score                999 non-null    float64
+    dtypes: float64(1), int64(2), object(5)
+    memory usage: 62.6+ KB
+
+    df = df.dropna()
+
+    df
+
+    
+    df["writing score"] = df["writing score"].astype(int)
+
+ 
+    df
+
+   
+    df["gender"].replace({"female":0,"male":1} , inplace=True)
+
+    
+    df["gender"].replace({"female":0,"male":1} , inplace=True)
+
+    df
+
+   
